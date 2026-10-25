@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AZ | PPF & CAR ACCESSORIES - عادل زكي (Adel Zaki)</title>
+
+  <!-- Google Fonts: Cairo for sleek Arabic & Orbitron / Rajdhani for Automotive Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome 6.5 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            azDark: '#07080b',
+            azCarbon: '#0d1017',
+            azCard: '#111520',
+            azRed: '#e50914',
+            azRedHover: '#ff1a2b',
+            azRedDark: '#8b0000',
+            azSilver: '#e2e8f0',
+            azChrome: '#94a3b8',
+            azGreen: '#25D366',
+            azTikTok: '#ff0050',
+            azInsta: '#E1306C',
+            azFb: '#1877F2'
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            racing: ['Orbitron', 'sans-serif'],
+            tech: ['Rajdhani', 'sans-serif']
+          },
+          boxShadow: {
+            'glow-red': '0 0 25px rgba(229, 9, 20, 0.45)',
+            'glow-red-lg': '0 0 45px rgba(229, 9, 20, 0.65)',
+            'metallic': '0 8px 24px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #07080b;
+      color: #e2e8f0;
+      overflow-x: hidden;
+      padding-bottom: 74px; /* Space for Mobile Floating Dock */
+    }
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    .font-racing { font-family: 'Orbitron', sans-serif; }
+    .font-tech { font-family: 'Rajdhani', sans-serif; }
+
+    /* Exact Hexagonal Honeycomb mesh background matching AZ Studio Ceiling */
+    .honeycomb-mesh {
+      background-color: #07080b;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.16) 0%, transparent 60%),
+        radial-gradient(#151b27 16%, transparent 17%), 
+        radial-gradient(#151b27 16%, transparent 17%);
+      background-size: 100% 100%, 22px 22px, 22px 22px;
+      background-position: 0 0, 0 0, 11px 11px;
+    }
+
+    /* Red Metallic 3D Button */
+    .red-metal-btn {
+      background: linear-gradient(180deg, #ff2a3b 0%, #d90429 50%, #99000a 100%);
+      box-shadow: 0 4px 18px rgba(217, 4, 41, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      border: 1px solid #ff4d5e;
+    }
+    .red-metal-btn:active {
+      transform: scale(0.97);
+      background: linear-gradient(180deg, #c0000d 0%, #90000a 100%);
+    }
+
+    /* Brushed Chrome Metallic Border */
+    .chrome-border {
+      background: linear-gradient(135deg, #f8fafc 0%, #64748b 35%, #94a3b8 65%, #334155 100%);
+      padding: 1.5px;
+    }
+
+    .glass-box {
+      background: rgba(13, 16, 23, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Pulse animation for WhatsApp & Call CTA */
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+    .pulse-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      background: #25D366;
+      animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+      z-index: -1;
+    }
+
+    /* Slider styling for Before/After */
+    .slider-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 30;
+      margin: 0;
+    }
+
+    /* Coming Soon Striped Ribbon */
+    .coming-soon-stripes {
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(229, 9, 20, 0.08),
+        rgba(229, 9, 20, 0.08) 12px,
+        rgba(0, 0, 0, 0.3) 12px,
+        rgba(0, 0, 0, 0.3) 24px
+      );
+    }
+
+    /* Hexagon ceiling reflection simulation overlay */
+    .hex-ceiling-overlay {
+      background-image: 
+        radial-gradient(ellipse at top, rgba(255,255,255,0.2) 0%, transparent 60%),
+        repeating-linear-gradient(60deg, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 1px, transparent 0, transparent 20px),
+        repeating-linear-gradient(120deg, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 1px, transparent 0, transparent 20px);
+    }
+  </style>
+</head>
+<body class="honeycomb-mesh antialiased selection:bg-azRed selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION TICKER ================= -->
+  <div class="bg-gradient-to-r from-black via-azRedDark to-black border-b border-azRed/40 py-2 px-3 text-center text-xs text-slate-200 flex items-center justify-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-azRed animate-ping"></span>
+    <span class="font-bold">
+      ⚡ <span class="font-racing text-white tracking-wider">AZ PPF & ACCESSORIES:</span> أقوى عروض أفلام الحماية <span class="text-red-300">PPF والعازل الحراري</span> بضمان رسمي من 5 إلى 10 سنوات!
+    </span>
+  </div>
+
+  <!-- ================= HEADER & NAV ================= -->
+  <header class="sticky top-0 z-40 bg-azDark/95 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- BRAND LOGO (Exact 1:1 Shield Badge for Adel Zaki) -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center">
+            
+            <!-- Real User Logo Image with fallback to exact SVG replica -->
+            <img src="PHOTO-2026-10-25-22-47-35.jpg" alt="AZ Shield Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; document.getElementById('svg-shield-logo').classList.remove('hidden');">
+            
+            <!-- Exact 3D Metallic Replica of the User's Shield Logo -->
+            <svg id="svg-shield-logo" viewBox="0 0 120 120" class="w-full h-full hidden drop-shadow-[0_0_15px_rgba(229,9,20,0.65)] group-hover:scale-105 transition-transform">
+              <path d="M60 4 L106 24 C106 72 60 114 60 116 C60 114 14 72 14 24 Z" fill="url(#outerChrome)" stroke="#ffffff" stroke-width="1.5"/>
+              <path d="M60 11 L98 28 C98 68 60 105 60 107 C60 105 22 68 22 28 Z" fill="#090b10" stroke="#334155" stroke-width="2"/>
+              
+              <pattern id="hexShield" width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M4 0 L8 2 L8 6 L4 8 L0 6 L0 2 Z" fill="none" stroke="#1f293d" stroke-width="0.8"/>
+              </pattern>
+              <path d="M60 13 L96 29 C96 66 60 102 60 104 C60 102 24 66 24 29 Z" fill="url(#hexShield)"/>
+              <path d="M60 16 L93 31 C93 64 60 98 60 100 C60 98 27 64 27 31 Z" fill="none" stroke="#ff1a2b" stroke-width="1.2" opacity="0.9"/>
+
+              <!-- 3D Beveled Red "A" and "Z" Letters -->
+              <path d="M42 34 L56 34 L66 74 L52 74 L49 61 L36 61 L33 74 L20 74 Z M42 45 L38 54 L47 54 Z" fill="url(#rubyRed3D)" filter="url(#dropShadowAZ)"/>
+              <path d="M57 39 L94 39 L94 48 L69 66 L95 66 L95 75 L56 75 L56 66 L81 48 L57 48 Z" fill="url(#rubyRed3D)" filter="url(#dropShadowAZ)"/>
+
+              <path d="M42 34 L56 34 L49 46 L38 46 Z" fill="#ffffff" opacity="0.45"/>
+              <path d="M57 39 L94 39 L85 46 L65 46 Z" fill="#ffffff" opacity="0.45"/>
+
+              <defs>
+                <linearGradient id="outerChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="25%" stop-color="#94a3b8"/>
+                  <stop offset="50%" stop-color="#f8fafc"/>
+                  <stop offset="75%" stop-color="#475569"/>
+                  <stop offset="100%" stop-color="#1e293b"/>
+                </linearGradient>
+                <linearGradient id="rubyRed3D" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff4d5e"/>
+                  <stop offset="40%" stop-color="#e50914"/>
+                  <stop offset="80%" stop-color="#b8000a"/>
+                  <stop offset="100%" stop-color="#550004"/>
+                </linearGradient>
+                <filter id="dropShadowAZ" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="1.5" dy="2.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.95"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5">
+              <span class="font-racing text-2xl sm:text-3xl font-black tracking-wider text-white">AZ</span>
+              <span class="w-1.5 h-5 bg-azRed rounded-sm skew-x-[-12deg]"></span>
+              <span class="font-racing text-xs sm:text-sm font-extrabold text-slate-200 tracking-wider">PPF & ACCESSORIES</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] sm:text-xs text-azRed font-bold">عادل زكي - Adel Zaki</span>
+              <span class="text-slate-600 text-[10px]">●</span>
+              <span class="text-[10px] text-slate-400">Adel Zaki For Car Accessories</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-5 font-bold text-xs sm:text-sm">
+          <a href="#tqfeel-video" class="text-azRed hover:text-white flex items-center gap-1 transition-colors">
+            <i class="fa-solid fa-play text-[10px]"></i> فيديو التقفيل 😉
+          </a>
+          <a href="#workshop-cars" class="text-slate-300 hover:text-azRed transition-colors">عربيات المركز</a>
+          <a href="#calculator" class="text-white hover:text-azRed flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-azRed/15 border border-azRed/40 font-racing text-xs">
+            <i class="fa-solid fa-calculator text-azRed"></i> LIVE CALCULATOR
+          </a>
+          <a href="#ppf-pricing" class="text-slate-300 hover:text-azRed transition-colors">أسعار PPF</a>
+          <a href="#thermal-pricing" class="text-slate-300 hover:text-azRed transition-colors">العازل والفاميه</a>
+          <a href="#accessories-section" class="text-slate-400 hover:text-azRed transition-colors flex items-center gap-1">
+            <span>الإكسسوارات</span>
+            <span class="text-[9px] px-1.5 py-0.2 rounded bg-azRed/20 text-azRed">قريباً</span>
+          </a>
+          <a href="#bodykits-section" class="text-slate-400 hover:text-azRed transition-colors flex items-center gap-1">
+            <span>كيتات العربيات</span>
+            <span class="text-[9px] px-1.5 py-0.2 rounded bg-azRed/20 text-azRed">قريباً</span>
+          </a>
+          <a href="#contact" class="text-slate-300 hover:text-azRed transition-colors">اللوكيشن</a>
+        </nav>
+
+        <!-- Right Quick Action (Direct Call & WhatsApp) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="tel:01060995649" class="p-2.5 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white hover:border-azRed hover:text-azRed transition-all text-xs font-bold flex items-center gap-2" title="اتصل بكابتن عادل زكي">
+            <i class="fa-solid fa-phone text-azRed text-sm"></i>
+            <span class="hidden sm:inline font-racing">01060995649</span>
+          </a>
+
+          <a href="https://wa.me/201060995649" target="_blank" rel="noopener" class="red-metal-btn text-white font-extrabold py-2.5 px-3.5 sm:px-5 rounded-xl text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg text-white"></i>
+            <span class="hidden sm:inline">حجز موعد واتساب</span>
+            <span class="sm:hidden font-bold">واتساب</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-6 sm:pt-12 pb-14 overflow-hidden">
+    <!-- Ambient Red Neon Glows -->
+    <div class="absolute top-1/4 right-5 w-72 sm:w-96 h-72 sm:h-96 bg-azRed/15 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute bottom-5 left-5 w-60 sm:w-80 h-60 sm:h-80 bg-azRedDark/20 rounded-full blur-[90px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Badges on Mobile -->
+      <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-4">
+        <span class="px-3.5 py-1 rounded-full bg-azCard border border-azRed/40 text-xs font-bold text-slate-200 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-azRed animate-pulse"></span>
+          <span>إدارة كابتن عادل زكي (Adel Zaki)</span>
+        </span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-racing text-slate-300">
+          GENUINE PPF & TINT
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Text & Action Column -->
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-right">
+          
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+            حماية كاملة وفخامة تدوم <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-azRed via-rose-500 to-white font-racing">
+              AZ PPF & CAR ACCESSORIES
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+            أقوى خامات أفلام حماية الدهان <strong>TPU & TPH</strong> ذاتية المعالجة، عزل حراري أمريكي أصلي و 3M، وفاميه وتعديلات سيارات بأعلى مستوى تقفيل وتني حواف داخلي بدون لمس سلاح الكتر لصاج عربيتك.
+          </p>
+
+          <!-- Quick Metrics Bar -->
+          <div class="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-md mx-auto lg:mx-0">
+            <div class="p-3 rounded-2xl glass-box border-slate-800 text-center">
+              <span class="font-racing text-lg sm:text-2xl font-black text-azRed block">10 YRS</span>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-300">أقصى فترة ضمان</span>
+            </div>
+            <div class="p-3 rounded-2xl glass-box border-slate-800 text-center">
+              <span class="font-racing text-lg sm:text-2xl font-black text-white block">100%</span>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-300">تقفيل وتني حواف</span>
+            </div>
+            <div class="p-3 rounded-2xl glass-box border-slate-800 text-center">
+              <span class="font-racing text-lg sm:text-2xl font-black text-azRed block">300 LE</span>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-300">أسعار تبدأ من</span>
+            </div>
+          </div>
+
+          <!-- Hero Main Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <a href="#calculator" class="w-full sm:w-auto px-7 py-3.5 red-metal-btn text-white font-extrabold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-glow-red">
+              <i class="fa-solid fa-calculator text-lg"></i>
+              <span>احسب تكلفة سيارتك فوراً</span>
+            </a>
+            
+            <a href="#tqfeel-video" class="w-full sm:w-auto px-6 py-3.5 glass-box hover:border-azRed text-slate-200 hover:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 transition-all">
+              <i class="fa-solid fa-play text-azRed text-sm"></i>
+              <span>شاهد تقفيل الشغل 😉</span>
+            </a>
+          </div>
+
+          <!-- Direct Social Quick Bar -->
+          <div class="pt-2 flex items-center justify-center lg:justify-start gap-2.5">
+            <span class="text-xs text-slate-400 font-semibold ml-2">قنواتنا الرسمية:</span>
+            <a href="https://www.instagram.com/az_adel.zaki?psln=cTRuYjNjcnphc245" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-azInsta hover:border-azInsta transition-all" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@adelzakiaz?_r=1&_t=ZS-9ArIpGTurtG" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-azTikTok hover:border-azTikTok transition-all" title="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.facebook.com/share/19dYvUJRzg/?mibextid=wwXIfr" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-azFb hover:border-azFb transition-all" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7?g_st=iw" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-400 transition-all" title="Google Maps">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Visual Hero Card with Studio Car Presentation -->
+        <div class="lg:col-span-5">
+          <div class="chrome-border rounded-3xl shadow-2xl">
+            <div class="bg-azCard rounded-[22px] overflow-hidden relative">
+              <div class="relative h-72 sm:h-84 overflow-hidden bg-slate-950 flex items-center justify-center">
+                
+                <!-- Primary Real Image (Direct link or local file) -->
+                <img id="hero-car-img" src="https://i.ibb.co/YFjR92XZ/PHOTO-2026-10-26-00-02-54-3.jpg" onerror="this.onerror=null; this.src='https://i.ibb.co.com/YFjR92XZ/PHOTO-2026-10-26-00-02-54-3.jpg';" alt="كوبرا ليون في مركز عادل زكي" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                
+                <!-- Hexagon ceiling reflection simulator -->
+                <div class="absolute inset-0 hex-ceiling-overlay pointer-events-none opacity-40"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-azDark via-transparent to-black/30"></div>
+
+                <!-- Top Badge: Real Workshop -->
+                <div class="absolute top-3 right-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-xl border border-azRed/50 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-azRed animate-pulse"></span>
+                  <span class="text-[11px] font-bold text-white">مركز عادل زكي الرسمي</span>
+                </div>
+              </div>
+              
+              <!-- Floating Brand Card on Image -->
+              <div class="p-4 bg-azCard border-t border-slate-800">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-azRed/20 border border-azRed/40 text-azRed flex items-center justify-center font-racing font-black text-sm">
+                      AZ
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-extrabold text-white">كابتن عادل زكي (Adel Zaki)</h4>
+                      <p class="text-[11px] text-slate-300">سقف إضاءة Hexagon وخامات AEP المعتمدة</p>
+                    </div>
+                  </div>
+                  <a href="tel:01060995649" class="p-2.5 rounded-xl red-metal-btn text-white text-xs">
+                    <i class="fa-solid fa-phone"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DEDICATED VIDEO SECTION ("تقفيل مش هتلاقيه عند حد 😉") ================= -->
+  <section id="tqfeel-video" class="py-12 bg-azDark/95 border-t border-slate-800 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <span class="px-3.5 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/15 border border-azRed/30 inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-certificate text-azRed"></i> AZ SIGNATURE CRAFTSMANSHIP
+        </span>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white mt-3">
+          تقفيل مش هتلاقيه عند حد 😉
+        </h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-2 max-w-xl mx-auto leading-relaxed">
+          شوف بنفسك دقة تني فيلم الـ PPF داخل الحلق والزوايا والأطراف بدون أي أثر أو قص على الصاج، مع إحكام كامل ضد فك الأطراف أو دخول الأتربة.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Video Player Box -->
+        <div class="lg:col-span-7">
+          <div class="chrome-border rounded-3xl shadow-glow-red overflow-hidden relative">
+            <div class="bg-black rounded-[22px] overflow-hidden relative aspect-[9/16] sm:aspect-video flex items-center justify-center max-h-[500px]">
+              
+              <!-- Video Element supporting exact user video name + direct high-speed automotive wrap video fallback -->
+              <video id="tqfeelVideo" class="w-full h-full object-cover" loop playsinline preload="metadata">
+                <source src="d19763d8-6a0b-49e8-8191-4f19a363077b.MP4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+              </video>
+
+              <!-- Video Overlay with Play Button if paused -->
+              <div id="videoOverlay" onclick="togglePlayVideo()" class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full red-metal-btn flex items-center justify-center text-white text-2xl sm:text-3xl shadow-glow-red hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-play ml-1" id="playIcon"></i>
+                </div>
+                <span class="text-white font-bold text-xs sm:text-sm mt-3 px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-sm border border-slate-700 shadow-xl">
+                  اضغط للمشاهدة والتأكد من التقفيل 🔥
+                </span>
+                <span class="text-[11px] text-red-300 mt-1.5 font-bold">تني الحواف الداخلية بدون لمس الصاج</span>
+              </div>
+
+              <!-- Top Video Badge -->
+              <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-azRed/50 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-azRed animate-pulse"></span>
+                <span class="text-[11px] font-bold text-white">تقفيل مش هتلاقيه عند حد 😉</span>
+              </div>
+
+              <!-- Sound Toggle Button -->
+              <div class="absolute bottom-3 left-3 pointer-events-auto z-20">
+                <button onclick="toggleVideoMute(event)" class="px-3 py-1.5 rounded-xl bg-black/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1.5 text-xs hover:text-azRed transition-colors">
+                  <i class="fa-solid fa-volume-high text-azRed" id="muteIcon"></i>
+                  <span id="muteText" class="text-[11px] font-bold">الصوت</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Highlights & Direct TikTok Proofs -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="glass-box p-4 rounded-2xl flex items-start gap-3.5 border-r-4 border-azRed">
+            <div class="w-10 h-10 rounded-xl bg-azRed/20 text-azRed flex items-center justify-center text-lg flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-white">تني داخلي كامل (Full Edge Wrapping)</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                فيلم الحماية بيدخل تحت الجلود وحواف الأبواب وحلق الفوانيس تماماً، فمستحيل يبان إن العربية ملزوق عليها حماية.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-box p-4 rounded-2xl flex items-start gap-3.5 border-r-4 border-azRed">
+            <div class="w-10 h-10 rounded-xl bg-azRed/20 text-azRed flex items-center justify-center text-lg flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-white">أمان تام بدون تجريح الدهان الفابريكا</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                أحدث أدوات الفرد والتني بدون لمس سلاح الكتر لدهان عربيتك الأصلي للحفاظ على الفابريكا 100%.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-box p-4 rounded-2xl flex items-start gap-3.5 border-r-4 border-azRed">
+            <div class="w-10 h-10 rounded-xl bg-azRed/20 text-azRed flex items-center justify-center text-lg flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-car-burst"></i>
+            </div>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-white">معالجة ذاتية للخدوش (Self-Healing)</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                أي خربشة سطحية أو دوائر غسيل بتختفي تلقائياً بمجرد تعرض السيارة لحرارة الشمس أو الماء الساخن.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="https://www.tiktok.com/@adelzakiaz?_r=1&_t=ZS-9ArIpGTurtG" target="_blank" rel="noopener" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 transition-all shadow-lg group">
+              <i class="fa-brands fa-tiktok text-azTikTok text-base group-hover:scale-110 transition-transform"></i>
+              <span>شاهد فيديوهات التقفيل وريلز العمل على تيك توك كابتن عادل</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= REAL WORKSHOP CARS SHOWCASE ================= -->
+  <section id="workshop-cars" class="py-12 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          REAL WORKSHOP GALLERY
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          عربيات حقيقية من داخل مركز AZ
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">
+          شغل المركز تحت إضاءة السقف الـ Hexagonal المجهزة بأحدث تقنيات الفحص وخامات AEP المعتمدة.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Car 1: CUPRA LEON -->
+        <div class="chrome-border rounded-2xl shadow-xl overflow-hidden group">
+          <div class="bg-azCard rounded-[15px] overflow-hidden flex flex-col h-full">
+            <div class="relative h-64 sm:h-72 overflow-hidden bg-slate-950 flex items-center justify-center">
+              
+              <!-- Cupra Real Image -->
+              <img id="img-cupra" data-viewer="https://ibb.co/YFjR92XZ" src="https://i.ibb.co/YFjR92XZ/PHOTO-2026-10-26-00-02-54-3.jpg" onerror="this.onerror=null; this.src='https://i.ibb.co.com/YFjR92XZ/PHOTO-2026-10-26-00-02-54-3.jpg';" alt="كوبرا ليون في مركز عادل زكي" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Hexagon light reflections overlay -->
+              <div class="absolute inset-0 hex-ceiling-overlay pointer-events-none opacity-30"></div>
+              
+              <div class="absolute top-3 right-3 bg-black/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-azRed/40 text-[10px] font-racing font-bold text-white flex items-center gap-1.5 shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-azRed animate-pulse"></span> CUPRA LEON - AEP TPU
+              </div>
+
+              <!-- Workshop AZ License Plate Tag -->
+              <div class="absolute bottom-2 right-2 bg-black/90 px-2 py-0.5 rounded border border-slate-700 text-[10px] font-bold text-slate-300">
+                <span class="text-azRed font-racing">AZ</span> Adel Zaki
+              </div>
+            </div>
+
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h4 class="text-base font-black text-white">كوبرا ليون (Cupra Leon)</h4>
+                  <a href="https://ibb.co/YFjR92XZ" target="_blank" rel="noopener" class="text-[11px] text-azRed hover:underline flex items-center gap-1 font-bold" title="عرض في ImgBB">
+                    <span>فتح في ImgBB</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                </div>
+                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                  تركيب فيلم حماية كامل AEP TPU مع سقف بانوراما بيانو وعزل حراري للزجاج الأمامي تحت سقف إضاءات الـ Hexagon.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-check"></i> تم التسليم بضمان 10 سنوات
+                </span>
+                <span class="font-racing text-xs text-azRed font-bold">AZ WORKSHOP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Car 2: SKODA OCTAVIA -->
+        <div class="chrome-border rounded-2xl shadow-xl overflow-hidden group">
+          <div class="bg-azCard rounded-[15px] overflow-hidden flex flex-col h-full">
+            <div class="relative h-64 sm:h-72 overflow-hidden bg-slate-950 flex items-center justify-center">
+              
+              <!-- Skoda Octavia Real Image -->
+              <img id="img-skoda" data-viewer="https://ibb.co/R4BFfrv9" src="https://i.ibb.co/R4BFfrv9/PHOTO-2026-10-26-00-02-54-2.jpg" onerror="this.onerror=null; this.src='https://i.ibb.co.com/R4BFfrv9/PHOTO-2026-10-26-00-02-54-2.jpg';" alt="سكودا أوكتافيا في مركز عادل زكي" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Hexagon light reflections overlay -->
+              <div class="absolute inset-0 hex-ceiling-overlay pointer-events-none opacity-30"></div>
+
+              <div class="absolute top-3 right-3 bg-black/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-azRed/40 text-[10px] font-racing font-bold text-white flex items-center gap-1.5 shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-azRed animate-pulse"></span> ŠKODA OCTAVIA
+              </div>
+
+              <!-- Workshop AZ License Plate Tag -->
+              <div class="absolute bottom-2 right-2 bg-black/90 px-2 py-0.5 rounded border border-slate-700 text-[10px] font-bold text-slate-300">
+                <span class="text-azRed font-racing">AZ</span> Adel Zaki
+              </div>
+            </div>
+
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h4 class="text-base font-black text-white">سكودا أوكتافيا (Škoda Octavia)</h4>
+                  <a href="https://ibb.co/R4BFfrv9" target="_blank" rel="noopener" class="text-[11px] text-azRed hover:underline flex items-center gap-1 font-bold" title="عرض في ImgBB">
+                    <span>فتح في ImgBB</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                </div>
+                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                  حماية واجهة كاملة ضد سافي السفر مع فاميه أمريكي حراري علبة ذهبي وحماية الفوانيس مع نمرة AZ الرسمية.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-check"></i> أعلى نسبة عزل حراري
+                </span>
+                <span class="font-racing text-xs text-amber-400 font-bold">GOLD TINT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Car 3: VOLKSWAGEN GOLF GTI -->
+        <div class="chrome-border rounded-2xl shadow-xl overflow-hidden group">
+          <div class="bg-azCard rounded-[15px] overflow-hidden flex flex-col h-full">
+            <div class="relative h-64 sm:h-72 overflow-hidden bg-slate-950 flex items-center justify-center">
+              
+              <!-- Golf GTI Real Image -->
+              <img id="img-golf" data-viewer="https://ibb.co/8gD0D9QC" src="https://i.ibb.co/8gD0D9QC/PHOTO-2026-10-26-00-02-54.jpg" onerror="this.onerror=null; this.src='https://i.ibb.co.com/8gD0D9QC/PHOTO-2026-10-26-00-02-54.jpg';" alt="جولف GTI في مركز عادل زكي" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Hexagon light reflections overlay -->
+              <div class="absolute inset-0 hex-ceiling-overlay pointer-events-none opacity-30"></div>
+
+              <div class="absolute top-3 right-3 bg-black/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-azRed/40 text-[10px] font-racing font-bold text-white flex items-center gap-1.5 shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-azRed animate-pulse"></span> VW GOLF GTI
+              </div>
+
+              <!-- Workshop AZ License Plate Tag -->
+              <div class="absolute bottom-2 right-2 bg-black/90 px-2 py-0.5 rounded border border-slate-700 text-[10px] font-bold text-slate-300">
+                <span class="text-azRed font-racing">AZ</span> Adel Zaki
+              </div>
+            </div>
+
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h4 class="text-base font-black text-white">فولكس فاجن جولف (VW Golf GTI)</h4>
+                  <a href="https://ibb.co/8gD0D9QC" target="_blank" rel="noopener" class="text-[11px] text-azRed hover:underline flex items-center gap-1 font-bold" title="عرض في ImgBB">
+                    <span>فتح في ImgBB</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                </div>
+                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                  تقفيل حماية كامل للبودي مع تفريغ شعار GTI ولمعان كريستالي ومظهر رياضي متوحش بمركز كابتن عادل زكي.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-check"></i> فحص كامل للجودة
+                </span>
+                <span class="font-racing text-xs text-azRed font-bold">GTI EDITION</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE PRICE CALCULATOR (AZ Engine) ================= -->
+  <section id="calculator" class="py-12 bg-azDark/90 border-t border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          AZ QUOTE BUILDER
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2.5">
+          حاسبة الأسعار الفورية وتجهيز الحجز
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1.5">
+          حدد مواصفات سيارتك وسيتم حساب التكلفة وتجهيز رسالة واتساب جاهزة ترسلها مباشرة لكابتن عادل زكي.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Controls Column (Left) -->
+        <div class="lg:col-span-7 space-y-5">
+          
+          <!-- STEP 1: PPF MATERIAL -->
+          <div class="glass-box p-4 sm:p-5 rounded-2xl">
+            <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-azRed text-white flex items-center justify-center font-racing font-bold text-xs">1</span>
+                <h3 class="text-sm sm:text-base font-bold text-white">اختر فيلم حماية الطلاء (PPF)</h3>
+              </div>
+              <span class="text-[11px] text-slate-400 font-semibold">ضمان من 5 إلى 10 سنوات</span>
+            </div>
+
+            <div class="space-y-2" id="calc-ppf-container">
+              <!-- Dynamically populated from JS catalog -->
+            </div>
+          </div>
+
+          <!-- STEP 2: THERMAL TINT -->
+          <div class="glass-box p-4 sm:p-5 rounded-2xl">
+            <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-azRed text-white flex items-center justify-center font-racing font-bold text-xs">2</span>
+                <h3 class="text-sm sm:text-base font-bold text-white">اختر العازل الحراري أو الفاميه</h3>
+              </div>
+              <span class="text-[11px] text-slate-400 font-semibold">عزل حرارة وخصوصية</span>
+            </div>
+
+            <div class="space-y-2" id="calc-tint-container">
+              <!-- Dynamically populated from JS catalog -->
+            </div>
+          </div>
+
+          <!-- STEP 3: EXTRAS & ACCESSORIES -->
+          <div class="glass-box p-4 sm:p-5 rounded-2xl">
+            <div class="flex items-center gap-2 mb-3 border-b border-slate-800 pb-2.5">
+              <span class="w-6 h-6 rounded-lg bg-azRed text-white flex items-center justify-center font-racing font-bold text-xs">3</span>
+              <h3 class="text-sm sm:text-base font-bold text-white">إضافات وتعديلات تجميلية (Extras)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <label class="flex items-center justify-between p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="extra-roof" onchange="updateLiveCalculation()" class="rounded bg-slate-900 border-slate-700 text-azRed focus:ring-0 w-4 h-4">
+                  <span class="text-slate-200 font-semibold">سقف أسود بيانو بانوراما</span>
+                </div>
+                <span class="text-azRed font-bold font-racing">+1,500 LE</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="extra-interior" onchange="updateLiveCalculation()" class="rounded bg-slate-900 border-slate-700 text-azRed focus:ring-0 w-4 h-4">
+                  <span class="text-slate-200 font-semibold">حماية شاشات وبيانو الصالون</span>
+                </div>
+                <span class="text-azRed font-bold font-racing">+1,800 LE</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="extra-headlights" onchange="updateLiveCalculation()" class="rounded bg-slate-900 border-slate-700 text-azRed focus:ring-0 w-4 h-4">
+                  <span class="text-slate-200 font-semibold">تعتيم وحماية فوانيس (Smoked)</span>
+                </div>
+                <span class="text-azRed font-bold font-racing">+800 LE</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" checked disabled class="rounded bg-slate-900 border-slate-700 text-azRed focus:ring-0 w-4 h-4">
+                  <span class="text-slate-200 font-semibold">حماية حواف الأبواب والمقابض</span>
+                </div>
+                <span class="text-emerald-400 font-bold">مجاناً 🎁</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Live Quote Summary (Right) -->
+        <div class="lg:col-span-5 lg:sticky lg:top-24">
+          <div class="chrome-border rounded-3xl shadow-2xl">
+            <div class="bg-azCard rounded-[22px] p-5 sm:p-6 space-y-5">
+              
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div>
+                  <span class="text-[10px] font-racing text-azRed font-bold uppercase tracking-wider">AZ OFFICIAL INVOICE</span>
+                  <h3 class="text-lg font-black text-white">ملخص عرض السعر الفوري</h3>
+                </div>
+                <div class="w-9 h-9 rounded-xl bg-azRed/15 border border-azRed/40 flex items-center justify-center text-azRed font-racing font-black text-sm">
+                  AZ
+                </div>
+              </div>
+
+              <!-- Breakdown Items -->
+              <div class="space-y-2.5 text-xs">
+                <div class="flex justify-between items-center text-slate-300">
+                  <span class="text-slate-400">فيلم الحماية (PPF):</span>
+                  <span id="disp-ppf-name" class="font-bold text-white text-right">AEP TPU (10 Years)</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-400 border-b border-slate-800/80 pb-2">
+                  <span>سعر الـ PPF:</span>
+                  <span id="disp-ppf-price" class="font-racing font-bold text-slate-200">30,000 LE</span>
+                </div>
+
+                <div class="flex justify-between items-center text-slate-300">
+                  <span class="text-slate-400">العازل / الفاميه:</span>
+                  <span id="disp-tint-name" class="font-bold text-white text-right">فاميه أمريكي حراري علبة ذهبي</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-400 border-b border-slate-800/80 pb-2">
+                  <span>سعر الفاميه:</span>
+                  <span id="disp-tint-price" class="font-racing font-bold text-slate-200">1,000 LE</span>
+                </div>
+
+                <div class="flex justify-between items-center text-slate-300">
+                  <span class="text-slate-400">الإضافات:</span>
+                  <span id="disp-extras-text" class="font-bold text-slate-200 text-right">بدون إضافات</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-400 border-b border-slate-800/80 pb-2">
+                  <span>سعر الإضافات:</span>
+                  <span id="disp-extras-price" class="font-racing font-bold text-slate-200">0 LE</span>
+                </div>
+
+                <div class="flex justify-between items-center text-slate-300 pt-1">
+                  <span class="text-slate-400">الضمان المعتمد:</span>
+                  <span id="disp-warranty" class="px-2.5 py-0.5 rounded-full bg-azRed/20 text-azRed font-bold text-xs">
+                    ضمان 10 سنوات
+                  </span>
+                </div>
+              </div>
+
+              <!-- Total Price Display -->
+              <div class="p-4 rounded-2xl bg-black/60 border border-slate-800 text-center space-y-1">
+                <span class="text-[11px] text-slate-400 font-bold block">التكلفة التقديرية الإجمالية</span>
+                <div class="text-3xl font-racing font-black text-white" id="disp-total-price">
+                  31,000 <span class="text-azRed text-sm">LE</span>
+                </div>
+                <span class="text-[10px] text-slate-400">شامل الخامات الأصلية والقص والتثبيت في المركز</span>
+              </div>
+
+              <!-- Customer Input Details -->
+              <div class="space-y-2">
+                <input type="text" id="cust-name" placeholder="اسمك الكريم (مثلاً: أحمد خيري)" class="w-full bg-azDark border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-azRed">
+                <input type="text" id="cust-car" placeholder="موديل ونوع العربية (مثلاً: سيات كوبرا 2024 / سكودا أوكتافيا)" class="w-full bg-azDark border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-azRed">
+              </div>
+
+              <!-- WhatsApp Action Button connected directly to 01060995649 -->
+              <button onclick="sendCalculatedQuoteToAdel()" class="w-full py-3.5 red-metal-btn text-white font-extrabold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>إرسال العرض وحجز موعد عبر واتساب</span>
+              </button>
+
+              <div class="flex items-center justify-center gap-3 text-[11px] text-slate-400">
+                <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-azRed"></i> كابتن عادل زكي مباشرة</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-clock text-azRed"></i> تأكيد فوري</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PPF PRODUCTS & FULL PRICING LIST ================= -->
+  <section id="ppf-pricing" class="py-12 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          PPF PRICE LIST & DETAILS
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          قائمة أسعار أفلام الحماية المعتمدة (PPF)
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">
+          جميع الأسعار معلنة رسمياً من مركز <span class="text-white font-bold">AZ (عادل زكي)</span> مع فترات الضمان.
+        </p>
+      </div>
+
+      <!-- 7 Exact PPF Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <!-- 1. AEP TPH -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-slate-600 transition-all">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">TPH HYBRID</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-300 font-bold">ضمان 5 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">AEP TPH</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              فيلم حماية هجين اقتصادي يحمي من سافي الطرق السريعة ودوائر الغسيل ولمعان عالي.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-white">20,000</span>
+                <span class="text-xs text-azRed font-bold font-racing">LE (20k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('AEP TPH', '20,000 LE', 'ضمان 5 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة AEP TPH</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. AEP PU -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-slate-600 transition-all">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">PU COATED</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-300 font-bold">ضمان 5 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">AEP PU</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              بولي يوريثان مرن بمقاومة عالية للصدمات السطحية وعزل فضلات الطيور والمواد الكيميائية.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-white">25,000</span>
+                <span class="text-xs text-azRed font-bold font-racing">LE (25k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('AEP PU', '25,000 LE', 'ضمان 5 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة AEP PU</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. AEP TPU (Highlighted Option) -->
+        <div class="rounded-2xl p-0.5 bg-gradient-to-b from-azRed via-slate-700 to-slate-900 shadow-glow-red flex flex-col justify-between">
+          <div class="bg-azCard rounded-[15px] p-5 h-full flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-[10px] font-racing font-black px-2 py-0.5 rounded bg-azRed text-white">BEST SELLER</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-azRed/20 text-azRed font-bold border border-azRed/40">ضمان 10 سنوات 🔥</span>
+              </div>
+              <h3 class="text-lg font-racing font-black text-white">AEP TPU</h3>
+              <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                خامة TPU أصلية 100% مع خاصية المعالجة الذاتية للخدوش (Self-Healing) بالحرارة.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-800">
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="text-xs text-slate-400">السعر الرسمي:</span>
+                <div>
+                  <span class="text-2xl font-racing font-black text-azRed">30,000</span>
+                  <span class="text-xs text-slate-300 font-bold font-racing">LE (30k)</span>
+                </div>
+              </div>
+              <button onclick="directOrder('AEP TPU', '30,000 LE', 'ضمان 10 سنوات')" class="w-full py-2.5 rounded-xl red-metal-btn text-white text-xs font-extrabold transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-white"></i>
+                <span>حجز خامة AEP TPU</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. XPPF TPU -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-slate-600 transition-all">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">ULTRA GLOSS</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-300 font-bold">ضمان 5 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">XPPF TPU</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              لمعان زجاجي كريستالي فائق النقاء لا يغير من لون دهان السيارة الفابريكا إطلاقاً.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-white">30,000</span>
+                <span class="text-xs text-azRed font-bold font-racing">LE (30k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('XPPF TPU', '30,000 LE', 'ضمان 5 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة XPPF TPU</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Scotchgard TPU (Skotsh gard) -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-slate-600 transition-all">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">SCOTCHGARD</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-300 font-bold">ضمان 7 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">Scotchgard TPU</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              تكنولوجيا سكوتش جارد لمقاومة البقع والأتربة وسافي الطرق مع مرونة فائقة.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-white">35,000</span>
+                <span class="text-xs text-azRed font-bold font-racing">LE (35k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('Scotchgard TPU', '35,000 LE', 'ضمان 7 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة Scotchgard</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. XPEL TPU Matte (Mat) -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-azRed/50 transition-all">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">XPEL MATTE</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-azRed/20 text-azRed font-bold">ضمان 10 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">XPEL TPU Matte</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              تحويل دهان سيارتك لمظهر مطفي رياضي فخم (Satin Finish) مع أعلى درجة حماية.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-azRed">45,000</span>
+                <span class="text-xs text-slate-300 font-bold font-racing">LE (45k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('XPEL TPU Matte', '45,000 LE', 'ضمان 10 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة XPEL Matte</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 7. Royal Pro TPU -->
+        <div class="glass-box rounded-2xl p-5 flex flex-col justify-between hover:border-azRed/50 transition-all sm:col-span-2 lg:col-span-1 lg:col-start-2">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-racing font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">ROYAL PRO</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-azRed/20 text-azRed font-bold">ضمان 10 سنوات</span>
+            </div>
+            <h3 class="text-lg font-racing font-black text-white">Royal Pro TPU</h3>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              الفئة الفارهة ذات السمك العالي والشفاء الذاتي فائق السرعة وطبقة نانو طاردة للماء.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-xs text-slate-400">السعر الرسمي:</span>
+              <div>
+                <span class="text-2xl font-racing font-black text-azRed">45,000</span>
+                <span class="text-xs text-slate-300 font-bold font-racing">LE (45k)</span>
+              </div>
+            </div>
+            <button onclick="directOrder('Royal Pro TPU', '45,000 LE', 'ضمان 10 سنوات')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-azRed border border-slate-800 hover:border-azRed text-white text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>حجز خامة Royal Pro</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= THERMAL INSULATION & TINTING SECTION ================= -->
+  <section id="thermal-pricing" class="py-12 bg-azDark/90 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          HEAT BLOCK & TINTING
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          العازل الحراري والفاميه المعتمد
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">
+          عزل فوري لحرارة الصيف وحماية داخلية صالون سيارتك مع وضوح رؤية استثنائي ليلاً.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
+        
+        <!-- 1. Full 3M -->
+        <div class="glass-box rounded-2xl p-4 flex flex-col justify-between hover:border-azRed transition-all">
+          <div>
+            <span class="text-[9px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">FULL 3M</span>
+            <h4 class="font-racing font-black text-white text-sm sm:text-base mt-2">Full Thermal 3M</h4>
+            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">
+              عازل حراري كامل لجميع زجاج السيارة من 3M.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-xl font-racing font-black text-azRed mb-2">4,000 <span class="text-xs text-slate-300">LE</span></div>
+            <button onclick="directOrder('Full Thermal Insulation 3M', '4,000 LE', '3M معتمد')" class="w-full py-2 bg-slate-900 hover:bg-azRed text-white text-xs font-bold rounded-lg transition-colors">
+              حجز 3M
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. American Thermal Gold Box -->
+        <div class="glass-box rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition-all">
+          <div>
+            <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">علبة ذهبي GOLD</span>
+            <h4 class="font-bold text-white text-sm sm:text-base mt-2">فاميه أمريكي حراري</h4>
+            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">
+              فاميه أمريكي نانو حراري علبة ذهبي الأصلي.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-xl font-racing font-black text-amber-400 mb-2">1,000 <span class="text-xs text-slate-300">LE</span></div>
+            <button onclick="directOrder('فاميه أمريكي حراري علبة ذهبي', '1,000 LE', 'علبة ذهبي')" class="w-full py-2 bg-slate-900 hover:bg-amber-500 text-white hover:text-black text-xs font-bold rounded-lg transition-colors">
+              حجز علبة ذهبي
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. DS Thermal -->
+        <div class="glass-box rounded-2xl p-4 flex flex-col justify-between hover:border-azRed transition-all">
+          <div>
+            <span class="text-[9px] font-racing font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">DS THERMAL</span>
+            <h4 class="font-bold text-white text-sm sm:text-base mt-2">فاميه حراري DS</h4>
+            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">
+              عازل حراري DS جودة عالية وقيمة ممتازة.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-xl font-racing font-black text-white mb-2">600 <span class="text-xs text-azRed">LE</span></div>
+            <button onclick="directOrder('فاميه حراري DS', '600 LE', 'DS حراري')" class="w-full py-2 bg-slate-900 hover:bg-azRed text-white text-xs font-bold rounded-lg transition-colors">
+              حجز DS حراري
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. DS Regular -->
+        <div class="glass-box rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <span class="text-[9px] font-racing text-slate-400 px-2 py-0.5 rounded bg-slate-800">DS REGULAR</span>
+            <h4 class="font-bold text-white text-sm sm:text-base mt-2">فاميه عادي DS</h4>
+            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">
+              تظليل خصوصية وثبات لون يدوم.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-xl font-racing font-black text-white mb-2">400 <span class="text-xs text-azRed">LE</span></div>
+            <button onclick="directOrder('فاميه عادي DS', '400 LE', 'DS عادي')" class="w-full py-2 bg-slate-900 hover:bg-slate-700 text-white text-xs font-bold rounded-lg transition-colors">
+              حجز DS عادي
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. AZ Regular -->
+        <div class="glass-box rounded-2xl p-4 flex flex-col justify-between hover:border-azRed transition-all">
+          <div>
+            <span class="text-[9px] font-racing font-bold px-2 py-0.5 rounded bg-azRed/20 text-azRed">AZ SIGNATURE</span>
+            <h4 class="font-bold text-white text-sm sm:text-base mt-2">فاميه عادي AZ</h4>
+            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">
+              فاميه مركز AZ الاقتصادي بأفضل سعر في مصر.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <div class="text-xl font-racing font-black text-azRed mb-2">300 <span class="text-xs text-slate-300">LE</span></div>
+            <button onclick="directOrder('فاميه عادي AZ', '300 LE', 'AZ توقيع')" class="w-full py-2 bg-slate-900 hover:bg-azRed text-white text-xs font-bold rounded-lg transition-colors">
+              حجز فاميه AZ
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 1: CAR ACCESSORIES (COMING SOON) ================= -->
+  <section id="accessories-section" class="py-12 border-t border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="chrome-border rounded-3xl shadow-2xl overflow-hidden">
+        <div class="bg-azCard p-6 sm:p-10 relative coming-soon-stripes">
+          
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            
+            <div class="text-center md:text-right space-y-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-azRed/20 border border-azRed/50 text-azRed text-xs font-racing font-extrabold">
+                <span class="w-2 h-2 rounded-full bg-azRed animate-ping"></span>
+                <span>COMING SOON | قريباً جداً</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-4xl font-black text-white">
+                إكسسوارات السيارات الحصرية (Car Accessories)
+              </h3>
+              
+              <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                بنجهزلكم أضخم تشكيلة إكسسوارات صالون وخارجية: دواسات جلد 7D، إضاءات محيطية Ambient Light، حامل وشواحن هواتف ماج سيف لاسلكية، ومستلزمات العناية المتكاملة لسيارتك.
+              </p>
+
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2">
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">دواسات 7D فاخرة</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">شواحن لاسلكية ذكية</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">Ambient Lighting</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">معطرات وعناية فارهة</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="flex-shrink-0 text-center">
+              <a href="https://wa.me/201060995649?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D8%B9%D8%A7%D8%AF%D9%84%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%A5%D9%83%D8%B3%D8%B3%D9%88%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D8%AD%D8%A7%D9%84%D9%8A%D8%A7%D9%8B%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2" target="_blank" rel="noopener" class="red-metal-btn text-white text-xs sm:text-sm font-extrabold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-glow-red">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>استفسر عن المتاح حالياً</span>
+              </a>
+              <span class="text-[10px] text-slate-400 block mt-2">تحديثات أسبوعية على الواتساب</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: CAR BODY KITS (COMING SOON) ================= -->
+  <section id="bodykits-section" class="py-12 border-t border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="chrome-border rounded-3xl shadow-2xl overflow-hidden">
+        <div class="bg-azCard p-6 sm:p-10 relative coming-soon-stripes">
+          
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            
+            <div class="text-center md:text-right space-y-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-azRed/20 border border-azRed/50 text-azRed text-xs font-racing font-extrabold">
+                <span class="w-2 h-2 rounded-full bg-azRed animate-ping"></span>
+                <span>COMING SOON | تعديلات وكيتات</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-4xl font-black text-white">
+                كيتات وتعديلات العربيات الرياضية (Car Body Kits)
+              </h3>
+              
+              <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                قريباً في مركز AZ: تشكيلة سبويلرات كاربون، شفايف أمامية، ديفيوزرات خلفية رياضية، وعتب جانبي، مع خدمة التركيب والتثبيت والرش المطابق للفابريكا.
+              </p>
+
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2">
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">سبويلرات كاربون فايبر</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">ديفيوزر خلفي رياضي (Diffusers)</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">Front Splitters شفايف</span>
+                <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300">تعديلات خاصة للسيارات الرياضية</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="flex-shrink-0 text-center">
+              <a href="https://wa.me/201060995649?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%83%D8%A7%D8%A8%D8%AA%D9%86%20%D8%B9%D8%A7%D8%AF%D9%84%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%88%D9%81%D9%8A%D8%B1%20%D9%83%D9%8A%D8%AA%20%D8%A3%D9%88%20%D8%B3%D8%A8%D9%88%D9%8A%D9%84%D8%B1%20%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%AA%D9%8A" target="_blank" rel="noopener" class="red-metal-btn text-white text-xs sm:text-sm font-extrabold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-glow-red">
+                <i class="fa-solid fa-gauge-high text-lg"></i>
+                <span>طلب كيت مخصص لسيارتك</span>
+              </a>
+              <span class="text-[10px] text-slate-400 block mt-2">إمكانية التوريد والتركيب بالطلب</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= BEFORE & AFTER COMPARISON ================= -->
+  <section id="comparison" class="py-12 border-t border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          GLOSS & HEALING TEST
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          الفرق الحقيقي مع أفلام AZ PPF
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">
+          اسحب الدائرة بإصبعك يميناً ويساراً لمشاهدة الفرق بين الدهان المعرض للدوائر وبين المعالجة واللمعان الكريستالي.
+        </p>
+      </div>
+
+      <div class="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 select-none bg-black">
+        
+        <!-- After Layer -->
+        <div class="absolute inset-0 w-full h-full">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="After AZ PPF" class="w-full h-full object-cover">
+          <div class="absolute top-3 right-3 bg-azRed text-white font-racing font-black text-[11px] sm:text-xs px-2.5 py-1 rounded-lg shadow-lg flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved"></i> AFTER AZ PPF (ULTRA GLOSS)
+          </div>
+        </div>
+
+        <!-- Before Layer (Dull) -->
+        <div id="before-layer" class="absolute inset-0 w-full h-full overflow-hidden" style="width: 50%;">
+          <div class="relative w-full h-full" style="width: 100vw; max-width: 1024px;">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Before AZ PPF" class="w-full h-full object-cover filter contrast-75 brightness-75 sepia-[0.3]">
+            <div class="absolute inset-0 bg-slate-950/40 mix-blend-overlay"></div>
+          </div>
+          <div class="absolute top-3 left-3 bg-slate-900/90 text-slate-300 font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg border border-slate-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> بدون حماية (خدوش وبهتان)
+          </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white pointer-events-none z-20 flex items-center justify-center" style="left: 50%;">
+          <div class="w-8 h-8 rounded-full bg-azRed text-white flex items-center justify-center font-bold text-xs shadow-glow-red border-2 border-white -translate-x-1/2">
+            <i class="fa-solid fa-arrows-left-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Range Input for Touch / Mouse -->
+        <input type="range" min="0" max="100" value="50" id="comparison-slider" class="slider-input" aria-label="مقارنة الحماية">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LOCATION & SOCIAL HUB ================= -->
+  <section id="contact" class="py-12 bg-azDark/90 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="px-3 py-1 rounded-full text-[11px] font-racing font-bold text-azRed bg-azRed/10 border border-azRed/30">
+          LOCATION & CHANNELS
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          موقع المركز ووسائل التواصل
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">
+          شرفنا في المركز أو تواصل معنا مباشرة عبر الهاتف والواتساب والمنصات الرسمية.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Google Maps Location Box -->
+        <div class="lg:col-span-7 chrome-border rounded-3xl shadow-xl flex flex-col">
+          <div class="bg-azCard rounded-[22px] p-5 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+            
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-azRed/20 border border-azRed/40 text-azRed flex items-center justify-center text-2xl flex-shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-black text-white">عنوان وموقع مركز AZ</h3>
+                <p class="text-xs text-slate-300 mt-0.5">اضغط على الزر لفتح اتجاهات الطريق مباشرة في خرائط Google</p>
+              </div>
+            </div>
+
+            <!-- Visual Map Card / Clickable -->
+            <a href="https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7?g_st=iw" target="_blank" rel="noopener" class="block relative rounded-2xl overflow-hidden border border-slate-700 group">
+              <div class="h-44 sm:h-52 bg-slate-900 w-full relative flex items-center justify-center">
+                <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#ff1a2b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="text-center z-10 p-4">
+                  <div class="w-12 h-12 rounded-full bg-azRed text-white mx-auto flex items-center justify-center text-xl shadow-glow-red group-hover:scale-110 transition-transform mb-2">
+                    <i class="fa-solid fa-diamond-turn-right"></i>
+                  </div>
+                  <span class="text-sm font-bold text-white block">فتح اللوكيشن في Google Maps</span>
+                  <span class="text-[11px] text-slate-400">https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7</span>
+                </div>
+              </div>
+            </a>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7?g_st=iw" target="_blank" rel="noopener" class="flex-1 py-3 red-metal-btn text-white font-extrabold text-xs sm:text-sm rounded-xl text-center flex items-center justify-center gap-2">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>الاتجاهات إلى المركز (Google Maps)</span>
+              </a>
+              <a href="tel:01060995649" class="py-3 px-5 glass-box hover:border-azRed text-white font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-phone text-azRed"></i>
+                <span>01060995649</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Official Channels & Contact -->
+        <div class="lg:col-span-5 glass-box rounded-3xl p-5 sm:p-7 flex flex-col justify-between space-y-6">
+          
+          <div>
+            <h3 class="text-lg sm:text-xl font-black text-white mb-2">تواصل مع كابتن عادل زكي</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              تابع فيديوهات الشغل الواقعية قبل وبعد في الاستوري والريلز عبر منصاتنا الرسمية:
+            </p>
+          </div>
+
+          <!-- Social Links List -->
+          <div class="space-y-3">
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/201060995649" target="_blank" rel="noopener" class="flex items-center justify-between p-3.5 rounded-xl bg-azCarbon border border-slate-800 hover:border-emerald-500/60 transition-all group">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">واتساب الحجز والاستفسارات</h4>
+                  <span class="text-xs text-emerald-400 font-racing font-bold" dir="ltr">+20 106 099 5649</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/az_adel.zaki?psln=cTRuYjNjcnphc245" target="_blank" rel="noopener" class="flex items-center justify-between p-3.5 rounded-xl bg-azCarbon border border-slate-800 hover:border-azInsta/60 transition-all group">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">إنستجرام الرسمي (Instagram)</h4>
+                  <span class="text-xs text-slate-400 font-tech">@az_adel.zaki</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@adelzakiaz?_r=1&_t=ZS-9ArIpGTurtG" target="_blank" rel="noopener" class="flex items-center justify-between p-3.5 rounded-xl bg-azCarbon border border-slate-800 hover:border-azTikTok/60 transition-all group">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-brands fa-tiktok"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">تيك توك الفيديوهات (TikTok)</h4>
+                  <span class="text-xs text-slate-400 font-tech">@adelzakiaz</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/19dYvUJRzg/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center justify-between p-3.5 rounded-xl bg-azCarbon border border-slate-800 hover:border-blue-500/60 transition-all group">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">صفحة الفيسبوك (Facebook)</h4>
+                  <span class="text-xs text-slate-400">AZ PPF & Car Accessories</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-left text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-azRed text-base flex-shrink-0"></i>
+            <span>مواعيد العمل: يومياً من الساعة 11 صباحاً حتى 10 مساءً.</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black border-t border-slate-900 pt-10 pb-20 sm:pb-10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+        <div>
+          <div class="flex items-center justify-center sm:justify-start gap-2">
+            <span class="font-racing text-xl font-black text-white">AZ</span>
+            <span class="text-azRed font-bold">عادل زكي (Adel Zaki)</span>
+            <span class="text-slate-500">|</span>
+            <span class="text-slate-300">PPF & CAR ACCESSORIES</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">أفلام حماية الدهان • عازل حراري • فاميه أمريكي • إكسسوارات سيارات وكيتات</p>
+        </div>
+
+        <div class="flex items-center gap-4 text-sm">
+          <a href="https://www.instagram.com/az_adel.zaki?psln=cTRuYjNjcnphc245" target="_blank" rel="noopener" class="text-slate-400 hover:text-azInsta"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@adelzakiaz?_r=1&_t=ZS-9ArIpGTurtG" target="_blank" rel="noopener" class="text-slate-400 hover:text-azTikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/share/19dYvUJRzg/?mibextid=wwXIfr" target="_blank" rel="noopener" class="text-slate-400 hover:text-azFb"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7?g_st=iw" target="_blank" rel="noopener" class="text-slate-400 hover:text-emerald-400"><i class="fa-solid fa-location-dot"></i></a>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-900 mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-2">
+        <p>© 2026 AZ - Adel Zaki. جميع الحقوق محفوظة.</p>
+        <p class="font-racing text-slate-500 tracking-wider">OFFICIAL AUTOMOTIVE PROTECTION</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MOBILE STICKY BOTTOM DOCK ================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-azDark/95 backdrop-blur-xl border-t border-slate-800 py-2 px-3 shadow-[0_-5px_20px_rgba(0,0,0,0.8)]" aria-label="شريط الوصول السريع">
+    <div class="grid grid-cols-4 gap-2 text-center text-[10px] font-bold">
+      
+      <!-- Direct Call -->
+      <a href="tel:01060995649" class="flex flex-col items-center justify-center p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 active:bg-azRed active:text-white transition-all">
+        <i class="fa-solid fa-phone text-azRed text-base mb-1"></i>
+        <span>اتصال</span>
+      </a>
+
+      <!-- Google Maps Location -->
+      <a href="https://maps.app.goo.gl/FJkxTADcx9hsZDyJ7?g_st=iw" target="_blank" rel="noopener" class="flex flex-col items-center justify-center p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 active:border-azRed transition-all">
+        <i class="fa-solid fa-location-dot text-amber-400 text-base mb-1"></i>
+        <span>اللوكيشن</span>
+      </a>
+
+      <!-- Jump to Calculator -->
+      <a href="#calculator" class="flex flex-col items-center justify-center p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 active:border-azRed transition-all">
+        <i class="fa-solid fa-calculator text-blue-400 text-base mb-1"></i>
+        <span>احسب سعرك</span>
+      </a>
+
+      <!-- Direct WhatsApp Action (Highlighted) -->
+      <a href="https://wa.me/201060995649" target="_blank" rel="noopener" class="flex flex-col items-center justify-center p-1.5 rounded-xl red-metal-btn text-white shadow-glow-red">
+        <i class="fa-brands fa-whatsapp text-lg mb-0.5"></i>
+        <span>واتساب</span>
+      </a>
+
+    </div>
+  </aside>
+
+  <!-- ================= FLOATING DESKTOP WHATSAPP ================= -->
+  <div class="hidden md:flex fixed bottom-6 left-6 z-50 items-center gap-3">
+    <div class="flex items-center gap-2 bg-slate-900/95 text-white text-xs px-3.5 py-2 rounded-xl border border-azRed/40 shadow-2xl backdrop-blur-md">
+      <span class="w-2 h-2 rounded-full bg-azRed animate-ping"></span>
+      <span>تواصل مع كابتن عادل زكي 💬</span>
+    </div>
+    <a href="https://wa.me/201060995649" target="_blank" rel="noopener" class="relative w-14 h-14 rounded-full bg-azGreen hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl transition-transform hover:scale-110 active:scale-95">
+      <span class="pulse-ring"></span>
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 glass-box px-4 py-2.5 rounded-xl border border-azRed/50 text-white text-xs shadow-2xl flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4">
+    <i class="fa-solid fa-circle-check text-azRed text-base"></i>
+    <span id="toast-text">تمت العملية بنجاح</span>
+  </div>
+
+  <!-- ================= SCRIPT LOGIC ================= -->
+  <script>
+    // Suppress unhandled AbortError rejections caused by aborted media streams
+    window.addEventListener('unhandledrejection', function(event) {
+      if (event && event.reason && (event.reason.name === 'AbortError' || (typeof event.reason.message === 'string' && event.reason.message.toLowerCase().includes('abort')))) {
+        event.preventDefault();
+      }
+    });
+
+    // Exact AZ Business Phone
+    const OFFICIAL_PHONE = "201060995649";
+
+    // Products Database (Exact as requested)
+    const ppfDatabase = [
+      { id: 'aep_tpu', name: 'AEP TPU', price: 30000, warranty: 'ضمان 10 سنوات', tag: '30K LE' },
+      { id: 'aep_tph', name: 'AEP TPH', price: 20000, warranty: 'ضمان 5 سنوات', tag: '20K LE' },
+      { id: 'aep_pu', name: 'AEP PU', price: 25000, warranty: 'ضمان 5 سنوات', tag: '25K LE' },
+      { id: 'xppf_tpu', name: 'XPPF TPU', price: 30000, warranty: 'ضمان 5 سنوات', tag: '30K LE' },
+      { id: 'scotchgard', name: 'Scotchgard TPU (Skotsh gard)', price: 35000, warranty: 'ضمان 7 سنوات', tag: '35K LE' },
+      { id: 'xpel_matte', name: 'XPEL TPU Matte', price: 45000, warranty: 'ضمان 10 سنوات', tag: '45K LE' },
+      { id: 'royal_pro', name: 'Royal Pro TPU', price: 45000, warranty: 'ضمان 10 سنوات', tag: '45K LE' },
+      { id: 'no_ppf', name: 'بدون فيلم حماية PPF (فاميه فقط)', price: 0, warranty: 'بدون', tag: '0 LE' }
+    ];
+
+    const tintDatabase = [
+      { id: 'american_gold', name: 'فاميه أمريكي حراري علبة ذهبي', price: 1000, desc: 'American Tint Gold' },
+      { id: 'full_3m', name: 'Full Thermal Insulation 3M', price: 4000, desc: 'عازل حراري كامل 3M' },
+      { id: 'ds_thermal', name: 'فاميه حراري DS', price: 600, desc: 'DS Thermal' },
+      { id: 'ds_regular', name: 'فاميه عادي DS', price: 400, desc: 'DS Standard' },
+      { id: 'az_regular', name: 'فاميه عادي AZ', price: 300, desc: 'AZ Signature Tint' },
+      { id: 'no_tint', name: 'بدون فاميه أو عازل', price: 0, desc: 'حماية طلاء فقط' }
+    ];
+
+    let currentPpf = 'aep_tpu';
+    let currentTint = 'american_gold';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCalculatorOptions();
+      initComparisonSlider();
+      updateLiveCalculation();
+      resolveImgbbGallery();
+    });
+
+    // Multi-proxy auto-resolver for ImgBB viewer URLs to extract direct image links
+    async function resolveImgbbGallery() {
+      const items = [
+        { id: 'img-cupra', hero: true, viewer: 'https://ibb.co/YFjR92XZ' },
+        { id: 'img-skoda', hero: false, viewer: 'https://ibb.co/R4BFfrv9' },
+        { id: 'img-golf',  hero: false, viewer: 'https://ibb.co/8gD0D9QC' }
+      ];
+
+      const proxies = [
+        url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+        url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+        url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+      ];
+
+      for (const item of items) {
+        const targetImg = document.getElementById(item.id);
+        const heroImg = item.hero ? document.getElementById('hero-car-img') : null;
+
+        for (const makeProxy of proxies) {
+          try {
+            const proxyUrl = makeProxy(item.viewer);
+            const res = await fetch(proxyUrl, { cache: 'no-store' });
+            if (!res.ok) continue;
+
+            let html = '';
+            if (proxyUrl.includes('allorigins.win/get')) {
+              const json = await res.json();
+              html = json.contents || '';
+            } else {
+              html = await res.text();
+            }
+
+            // Extract direct image url from meta tags or img tag
+            const match = html.match(/<meta property="og:image" content="([^"]+)"/i) ||
+                          html.match(/<meta name="twitter:image" content="([^"]+)"/i) ||
+                          html.match(/https:\/\/i\.ibb\.co(?:\.com)?\/[^\s"'<>]+\.(?:jpg|jpeg|png|webp)/i);
+
+            if (match && match[1]) {
+              const directUrl = match[1];
+              if (targetImg) targetImg.src = directUrl;
+              if (heroImg) heroImg.src = directUrl;
+              break; // successfully resolved
+            }
+          } catch (e) {
+            // try next proxy
+          }
+        }
+      }
+    }
+
+    // Populate radio items
+    function renderCalculatorOptions() {
+      const ppfBox = document.getElementById('calc-ppf-container');
+      ppfBox.innerHTML = ppfDatabase.map(item => `
+        <label onclick="selectPpfOption('${item.id}')" class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all ${currentPpf === item.id ? 'border-azRed bg-azRed/10' : ''}">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" name="ppf_pick" value="${item.id}" ${currentPpf === item.id ? 'checked' : ''} class="w-4 h-4 text-azRed focus:ring-0 bg-slate-900 border-slate-700">
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-white">${item.name}</span>
+              ${item.warranty !== 'بدون' ? `<span class="mr-2 text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">${item.warranty}</span>` : ''}
+            </div>
+          </div>
+          <span class="font-racing font-bold text-xs sm:text-sm ${item.price === 0 ? 'text-slate-500' : 'text-azRed'}">${item.price > 0 ? item.price.toLocaleString() + ' LE' : '0 LE'}</span>
+        </label>
+      `).join('');
+
+      const tintBox = document.getElementById('calc-tint-container');
+      tintBox.innerHTML = tintDatabase.map(item => `
+        <label onclick="selectTintOption('${item.id}')" class="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-azCarbon border border-slate-800 cursor-pointer hover:border-azRed/40 transition-all ${currentTint === item.id ? 'border-azRed bg-azRed/10' : ''}">
+          <div class="flex items-center gap-2.5">
+            <input type="radio" name="tint_pick" value="${item.id}" ${currentTint === item.id ? 'checked' : ''} class="w-4 h-4 text-azRed focus:ring-0 bg-slate-900 border-slate-700">
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-white">${item.name}</span>
+              <span class="mr-2 text-[10px] text-slate-400">${item.desc}</span>
+            </div>
+          </div>
+          <span class="font-racing font-bold text-xs sm:text-sm ${item.price === 0 ? 'text-slate-500' : 'text-slate-200'}">${item.price > 0 ? item.price.toLocaleString() + ' LE' : '0 LE'}</span>
+        </label>
+      `).join('');
+    }
+
+    function selectPpfOption(id) {
+      currentPpf = id;
+      renderCalculatorOptions();
+      updateLiveCalculation();
+    }
+
+    function selectTintOption(id) {
+      currentTint = id;
+      renderCalculatorOptions();
+      updateLiveCalculation();
+    }
+
+    function updateLiveCalculation() {
+      const ppf = ppfDatabase.find(x => x.id === currentPpf) || ppfDatabase[0];
+      const tint = tintDatabase.find(x => x.id === currentTint) || tintDatabase[0];
+
+      let extrasSum = 0;
+      let extrasNames = [];
+
+      if (document.getElementById('extra-roof')?.checked) {
+        extrasSum += 1500;
+        extrasNames.push("سقف بانوراما (1,500)");
+      }
+      if (document.getElementById('extra-interior')?.checked) {
+        extrasSum += 1800;
+        extrasNames.push("حماية الصالون (1,800)");
+      }
+      if (document.getElementById('extra-headlights')?.checked) {
+        extrasSum += 800;
+        extrasNames.push("تعتيم الفوانيس (800)");
+      }
+
+      const total = ppf.price + tint.price + extrasSum;
+
+      document.getElementById('disp-ppf-name').innerText = ppf.name;
+      document.getElementById('disp-ppf-price').innerText = ppf.price.toLocaleString() + ' LE';
+
+      document.getElementById('disp-tint-name').innerText = tint.name;
+      document.getElementById('disp-tint-price').innerText = tint.price.toLocaleString() + ' LE';
+
+      document.getElementById('disp-extras-text').innerText = extrasNames.length > 0 ? extrasNames.join(' + ') : 'بدون إضافات';
+      document.getElementById('disp-extras-price').innerText = extrasSum.toLocaleString() + ' LE';
+
+      document.getElementById('disp-warranty').innerText = ppf.warranty !== 'بدون' ? ppf.warranty : 'ضمان العازل المعتمد';
+
+      document.getElementById('disp-total-price').innerHTML = `${total.toLocaleString()} <span class="text-azRed text-sm">LE</span>`;
+    }
+
+    function sendCalculatedQuoteToAdel() {
+      const ppf = ppfDatabase.find(x => x.id === currentPpf);
+      const tint = tintDatabase.find(x => x.id === currentTint);
+      const name = document.getElementById('cust-name').value.trim() || 'عميل محترم';
+      const car = document.getElementById('cust-car').value.trim() || 'سيارة خاصة';
+
+      let extras = [];
+      if (document.getElementById('extra-roof').checked) extras.push("• سقف أسود بيانو بانوراما");
+      if (document.getElementById('extra-interior').checked) extras.push("• حماية الشاشات والبيانو الداخلي");
+      if (document.getElementById('extra-headlights').checked) extras.push("• تعتيم وحماية فوانيس");
+
+      const extrasTxt = extras.length > 0 ? `%0A*الإضافات:*%0A${extras.join('%0A')}` : "";
+      const totalText = document.getElementById('disp-total-price').innerText.replace(/\s+/g, ' ');
+
+      const message = `السلام عليكم كابتن عادل زكي،%0Aأنا *${name}*، بتواصل معك من خلال موقع *AZ - PPF & CAR ACCESSORIES*:%0A%0A`
+        + `🚗 *السيارة:* ${car}%0A`
+        + `🛡️ *فيلم الحماية:* ${ppf.name} (${ppf.warranty})%0A`
+        + `☀️ *العازل / الفاميه:* ${tint.name}%0A`
+        + `${extrasTxt}%0A`
+        + `💰 *إجمالي العرض التقديري:* *${totalText}*%0A%0A`
+        + `عايز أثبت ميعاد فحص وحجز في المركز عندك. شكراً!`;
+
+      window.open(`https://wa.me/${OFFICIAL_PHONE}?text=${message}`, '_blank');
+    }
+
+    function directOrder(itemName, price, warranty) {
+      const msg = `السلام عليكم كابتن عادل، مهتم بحجز *${itemName}* بسعر ${price} (${warranty}) من موقع مركز AZ. حابب أعرف الميعاد المتاح للحضور للمركز لسيارتي.`;
+      window.open(`https://wa.me/${OFFICIAL_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Video Play/Pause & Audio Controllers
+    function togglePlayVideo() {
+      const video = document.getElementById('tqfeelVideo');
+      const overlay = document.getElementById('videoOverlay');
+      const playIcon = document.getElementById('playIcon');
+
+      if (!video) return;
+
+      if (video.paused) {
+        video.muted = false;
+        const muteIcon = document.getElementById('muteIcon');
+        const muteText = document.getElementById('muteText');
+        if (muteIcon) muteIcon.className = 'fa-solid fa-volume-high text-azRed';
+        if (muteText) muteText.innerText = 'شغال';
+
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              if (overlay) overlay.classList.add('opacity-0', 'pointer-events-none');
+              if (playIcon) playIcon.className = 'fa-solid fa-pause';
+            })
+            .catch(() => {
+              if (overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+              if (playIcon) playIcon.className = 'fa-solid fa-play ml-1';
+            });
+        }
+      } else {
+        video.pause();
+        if (overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+        if (playIcon) playIcon.className = 'fa-solid fa-play ml-1';
+      }
+    }
+
+    function toggleVideoMute(e) {
+      if (e) e.stopPropagation();
+      const video = document.getElementById('tqfeelVideo');
+      const icon = document.getElementById('muteIcon');
+      const text = document.getElementById('muteText');
+      if (!video || !icon) return;
+      video.muted = !video.muted;
+      if (video.muted) {
+        icon.className = 'fa-solid fa-volume-xmark text-slate-400';
+        if (text) text.innerText = 'مكتوم';
+        showToast('تم كتم الصوت');
+      } else {
+        icon.className = 'fa-solid fa-volume-high text-azRed';
+        if (text) text.innerText = 'شغال';
+        showToast('تم تشغيل الصوت 🔊');
+      }
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      if (!toast || !toastText) return;
+      toastText.innerText = text;
+      toast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+      }, 3000);
+    }
+
+    function initComparisonSlider() {
+      const slider = document.getElementById('comparison-slider');
+      const beforeLayer = document.getElementById('before-layer');
+      const handle = document.getElementById('slider-handle');
+
+      if (!slider || !beforeLayer || !handle) return;
+
+      slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        beforeLayer.style.width = `${val}%`;
+        handle.style.left = `${val}%`;
+      });
+    }
+  </script>
+</body>
+</html>
